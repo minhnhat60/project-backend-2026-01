@@ -9,8 +9,15 @@ const express = require("express");
 // })
 
 const app = express();
-const PORT = 3001;
+const dotenv = require("dotenv");
 const router = require("./routes/client/index.router");
+
+const connect = dotenv.config({ path: '.env' });
+
+const PORT = connect.parsed.PORT;
+
+console.log(PORT);
+
 
 app.set("views", "./views");
 app.set("view engine", "pug");
